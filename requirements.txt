@@ -1,0 +1,12 @@
+# Everything here is optional: the client runs on the Python standard
+# library alone, and each entry unlocks one capability. The launchers
+# install them all; a missing one only disables its own feature.
+#
+# certifi      a working CA bundle where Python ships without one (macOS)
+# python-docx  Word output, and reading .docx attachments
+# python-pptx  PowerPoint output, and reading .pptx attachments
+# pypdf        reading PDF attachments
+certifi>=2023.0.0
+python-docx>=1.1.0
+python-pptx>=0.6.21
+pypdf>=4.0.0

@@ -1,0 +1,15 @@
+{
+  "when": "2026-10-10T02:37:23",
+  "prompt_version": "54c29aad",
+  "model": "gpt-5.4-mini",
+  "average": 1.0,
+  "cases": {
+    "essay-baseline": 1.0,
+    "structure-baseline": 1.0
+  },
+  "judge": {
+    "essay-baseline": 4.5,
+    "structure-baseline": 4.25
+  },
+  "tokens": 15923
+}

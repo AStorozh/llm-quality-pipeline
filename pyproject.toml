@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-quality-pipeline"
+version = "1.0.0"
+description = "LLM Quality Pipeline: a measured document pipeline and terminal client for the newLXP (ITHub) learning platform."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "PolyForm-Noncommercial-1.0.0" }
+authors = [{ name = "Artemii Storozhevskikh" }]
+keywords = ["newlxp", "ithub", "lms", "cli", "tui", "graphql", "education"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Education",
+    "License :: Other/Proprietary License",
+    "Natural Language :: Russian",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Education",
+    "Topic :: Utilities",
+]
+# The client itself runs on the standard library alone; every extra below
+# unlocks one file format.
+dependencies = []
+
+[project.optional-dependencies]
+certs = ["certifi>=2023.0.0"]
+docx = ["python-docx>=1.1.0"]
+pptx = ["python-pptx>=0.6.21"]
+pdf = ["pypdf>=4.0.0"]
+all = [
+    "certifi>=2023.0.0",
+    "python-docx>=1.1.0",
+    "python-pptx>=0.6.21",
+    "pypdf>=4.0.0",
+]
+
+[project.scripts]
+newlxp = "newlxp.app:main"
+
+[tool.setuptools.packages.find]
+include = ["newlxp*"]
+
+[tool.ruff]
+line-length = 96
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B", "UP", "I"]
+ignore = [
+    "UP031",  # %-formatting is used consistently across the project
+    "UP032",
+    "B904",   # error messages are rewritten for the user, not chained
+    "B023",   # closures are consumed inside the same loop iteration
+]
+
+[tool.ruff.lint.per-file-ignores]
+# Test fixtures hold Markdown tables and task texts verbatim; wrapping them
+# would change the data under test.
+"tests/*" = ["E501"]

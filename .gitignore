@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+env/
+
+# Generated works and the saved credentials, kept out of the repo
+ai_output/
+.newlxp_session.json
+.newlxp_ai.json
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
+
+# Local runtime state (never committed)
+.newlxp_cache/
+.newlxp_error.log
+
+# Test coverage data (holds absolute local paths)
+.coverage
+htmlcov/
+
+# Local secrets and Claude Code state
+.env
+.claude/
+.ruff_cache/
